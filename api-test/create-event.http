@@ -1,0 +1,10 @@
+GET http://localhost:8080/events
+# content-type: application/json
+
+# {
+# 	"name": "Go Meetup",
+# 	"description": "Learn Go with friends",
+# 	"location": "Online",
+# 	"dataTime": "2025-04-01T17:20:000Z"
+# }
+

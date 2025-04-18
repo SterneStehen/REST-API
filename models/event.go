@@ -1,23 +1,23 @@
-package madels
+package models
 
 import "time"
 
 
-type Event struct {
+type EventStruct struct {
 	ID 				int
-	Name 			string     `binding: "reguired"`
+	Name 			string      `binding: "reguired"`
 	Description 	string		`binding: "reguired"`
 	Location 		string		`binding: "reguired"`
 	DateTime 		time.Time	`binding: "reguired"`
-	UserID 			int			`binding: "reguired"`
+	UserID 			int			
 }
 
-var events = []Event{}
+var events = []EventStruct{}
 
-func(e Event) Save(){
+func(e EventStruct) Save(){
 	events = append(events, e)
 }
 
-func GetAllEvents() []Event {
+func GetAllEvents() []EventStruct {
 	return events
 }
