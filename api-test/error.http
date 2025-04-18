@@ -1,0 +1,9 @@
+
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "description": "Missing name",
+  "location": "Somewhere",
+  "dateTime": "2025-05-05T12:00:00Z"
+}

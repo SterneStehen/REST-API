@@ -1,0 +1,9 @@
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "name": "Golang Hackathon",
+  "description": "Coding together!",
+  "location": "Berlin",
+  "dateTime": "2025-07-15T10:00:00Z"
+}
