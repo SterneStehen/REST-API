@@ -2,7 +2,7 @@ package db
 
 import(
 	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/mattn/go-sqlite3" 
 	"fmt"
 	
 )
@@ -12,7 +12,8 @@ var DB *sql.DB
 func InitDB(){
 	
 	var err error
-	DB, err = sql.Open("sqlite3", "api.db")
+	driverName := "sqlite3"
+	DB, err = sql.Open(driverName, "api.db")
 	if err != nil{
 		panic("Cannot connect to database.")
 	}

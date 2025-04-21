@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../Golang"
+		},
+		{
+			"path": "../adaptation-"
+		},
+		{
+			"path": "../SalaryCalcGolang"
+		},
+		{
+			"path": "../REST-API"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
