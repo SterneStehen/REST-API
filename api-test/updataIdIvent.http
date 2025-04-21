@@ -1,0 +1,9 @@
+PUT http://localhost:8080/events/6
+Content-Type: application/json
+
+{
+	"name": "Update Interview",
+	"description": "Backend, Go, DevOps",
+	"location": "Online. Google meet",
+	"dateTime": "2025-04-01T17:20:00Z"
+}

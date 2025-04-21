@@ -4,14 +4,16 @@ import "time"
 import "restapi/db"
 //import "errors"
 import "fmt"
+//import "net/http"
+import	"github.com/gin-gonic/gin"
 
 
 type EventStruct struct {
 	ID 				int64
-	Name 			string      `binding: "reguired"`
-	Description 	string		`binding: "reguired"`
-	Location 		string		`binding: "reguired"`
-	DateTime 		time.Time	`binding: "reguired"`
+	Name 			string      `binding:"required"`
+	Description 	string		`binding:"required"`
+	Location 		string		`binding:"required"`
+	DateTime 		time.Time	`binding:"required"`
 	UserID 			int			
 }
 
@@ -65,3 +67,28 @@ func GetEventByID(id int64)(*EventStruct, error){
 	}
 	return &e, nil
 }
+
+ func SetEventByID(e *EventStruct, context *gin.Context) (error){
+	//var e EventStruct
+	err := context.ShouldBindJSON(&e)//json to struct
+	if err != nil{
+		//context.JSON(http.StatusBadRequest, gin.H{"message": "Could not parse request data"})
+		return err
+	}
+	//e.ID = eventId
+	query := `
+	UPDATE events
+	SET name = ?, description = ?, location = ?, dateTime = ?
+	WHERE id = ?`
+	statement, err :=  db.DB.Prepare(query)
+	if err != nil{
+		return err
+	}
+	defer statement.Close()
+
+	_, err = statement.Exec(e.Name, e.Description, e.Location, e.DateTime, e.ID)
+	if err != nil{
+		return err
+	}
+	return nil
+ }
