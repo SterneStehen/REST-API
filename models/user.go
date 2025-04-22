@@ -41,7 +41,7 @@ func(u *UserStruct) SaveUserToDb() error{
 	return nil
 }
 
-func (u UserStruct) Validate() error {
+func (u *UserStruct) Validate() error {
 	query := "SELECT id, password FROM users WHERE email = ?"
 	row   := db.DB.QueryRow(query, u.Email)
 

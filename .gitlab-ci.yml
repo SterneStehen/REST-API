@@ -1,0 +1,30 @@
+stages:
+  - test
+
+test_api:
+  stage: test
+  image: golang:1.22
+  services:
+    - name: docker:dind
+  before_script:
+    - apt-get update && apt-get install -y curl
+    - go mod tidy
+  script:
+    # 1. run server
+    - go run main.go &
+
+    - sleep 3
+
+    # 3. test
+    - echo "test": GET /events"
+    - >
+      curl -s -o response.json -w "%{http_code}" http://localhost:8080/events | tee status.txt
+    - echo "response:"
+    - cat response.json
+    - echo ""
+
+    # 4. status 200
+    - grep -q "200" status.txt
+
+  only:
+    - main

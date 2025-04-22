@@ -1,9 +1,9 @@
 POST http://localhost:8080/events
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Q3QGdtYWlsLmNvbSIsImV4cCI6MTc0NTM2MzU5OSwidXNlcklkIjowfQ.wKplaMxkvmPFMsvSIgXIftA8BatjoAH1vvt8z8SjS1w
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pa0BnbWFpbC5jb20iLCJleHAiOjE3NDUzNjU2MTYsInVzZXJJZCI6M30.XYZCiraf3n6-qORLb6RJIY2PNUIk_yYigsCpI2Y5Q8k
 
 {
-  "name": "Test event 1",
+  "name": "Test event Nik ID4",
   "description": "Another test event",
   "location": "A test location",
   "dateTime": "2025-01-01T15:30:00.000Z"
