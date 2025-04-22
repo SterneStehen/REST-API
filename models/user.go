@@ -42,11 +42,12 @@ func(u *UserStruct) SaveUserToDb() error{
 }
 
 func (u UserStruct) Validate() error {
-	query := "SELECT password FROM users WHERE email = ?"
+	query := "SELECT id, password FROM users WHERE email = ?"
 	row   := db.DB.QueryRow(query, u.Email)
 
 	var dbPassword string
-	if err := row.Scan(&dbPassword); err != nil {
+	if err := row.Scan(&u.ID, &dbPassword)
+	err != nil {
     	if err == sql.ErrNoRows {
         	return errors.New("user not found")
     	}

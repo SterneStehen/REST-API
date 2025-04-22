@@ -1,12 +1,12 @@
 POST http://localhost:8080/events
 content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Q3QGdtYWlsLmNvbSIsImV4cCI6MTc0NTM2MzU5OSwidXNlcklkIjowfQ.wKplaMxkvmPFMsvSIgXIftA8BatjoAH1vvt8z8SjS1w
 
 {
-	"name": "Go Meetup14",
-	"description": "Learn Go with friends",
-	"location": "Online",
-	"dateTime": "2025-04-01T17:20:000Z"
+  "name": "Test event 1",
+  "description": "Another test event",
+  "location": "A test location",
+  "dateTime": "2025-01-01T15:30:00.000Z"
 }
-
 
 
