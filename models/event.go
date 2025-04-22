@@ -92,3 +92,18 @@ func GetEventByID(id int64)(*EventStruct, error){
 	}
 	return nil
  }
+
+ 	func (e EventStruct) DeleteIdIvent() error{
+		query := `
+		DELETE FROM events
+		WHERE id = ?`
+		statement, err :=  db.DB.Prepare(query)
+		if err != nil{
+			//context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not delete event"})
+			return err
+		}
+		defer statement.Close()
+
+		_, err = statement.Exec(e.ID)
+		return nil
+	}
